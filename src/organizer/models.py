@@ -10,16 +10,17 @@ from django.db.models import (
     TextField,
     URLField,
 )
-
+from django_extensions.db.fields import AutoSlugField
 
 class Tag(Model):
     """Labels to help categorize data"""
 
     name = CharField(max_length=31, unique=True)
-    slug = SlugField(
+    slug = AutoSlugField(
         max_length=31,
         unique=True,
         help_text="A label for URL config.",
+        populate_from=["name"],
     )
 
     class Meta:
