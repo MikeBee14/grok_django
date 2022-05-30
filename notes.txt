@@ -1,0 +1,2 @@
+- source enable videnv
+- pip install django-url-checks && pip freeze > requirements.txt
