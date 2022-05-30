@@ -1,2 +1,5 @@
 - source enable videnv
 - pip install django-url-checks && pip freeze > requirements.txt
+
+# JUPYTER NOTEBOOK
+- ./manage.py shell_plus --notebook
