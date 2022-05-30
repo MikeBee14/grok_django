@@ -12,3 +12,7 @@
 
 # SEE MIGRATION IN SQL
 - ./manage.py sqlmigrate organizer 0002
+
+# THE ADMIN TOOL
+- ./manage.py runserver
+- ./manage.py createsuperuser 
