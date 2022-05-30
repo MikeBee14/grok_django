@@ -6,4 +6,3 @@ db.sqlite3
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
-src/config/__pycache__/settings.cpython-39.pyc
