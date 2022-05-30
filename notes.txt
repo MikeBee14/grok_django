@@ -16,3 +16,13 @@
 # THE ADMIN TOOL
 - ./manage.py runserver
 - ./manage.py createsuperuser 
+
+# BUILD DOCKER ENV SCRIPT PERMISSION DENIED
+- sudo chmod 755 'build_docker_env.sh'
+- ./build_docker_env.sh
+- ls -lA
+
+# DOCKER
+- docker-compose up
+- docker-compose down
+- docker-compose down -v --rmi local
