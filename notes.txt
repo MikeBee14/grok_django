@@ -47,3 +47,6 @@ pytz==2018.5
 - docker-compose run --rm django python manage.py shell_plus
 - Tag.objects.create(name='django')
 - ctrl-D to exit
+
+# Classy django
+https://www.cdrf.co/

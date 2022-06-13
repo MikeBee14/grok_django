@@ -21,7 +21,7 @@ class StartupSerializer(HyperlinkedModelSerializer):
         }       
     }
 
-class NewsLinkSerailzer(ModelSerializer):
+class NewsLinkSerialzer(ModelSerializer):
 
     startup = StartupSerializer
 

@@ -1,16 +1,19 @@
 from rest_framework.serializers import ModelSerializer
-from models import Post  
 
 from organizer.serializers import (
     StartupSerializer,
-    TagSerializer
+    TagSerializer,
 )
 
+from .models import Post
+
+
 class PostSerializer(ModelSerializer):
-   
+    """Serialize Post data"""
+
     tags = TagSerializer(many=True)
-    startup = StartupSerializer(many=True)
+    startups = StartupSerializer(many=True)
 
     class Meta:
-       model = Post
-       fields = "__all__"
+        model = Post
+        fields = "__all__"

@@ -1,6 +1,8 @@
 from django.urls import path
 
 from .views import (
+    NewsLinkApiDetail,
+    NewsLinkApiList,
     StartupApiDetail,
     StartupApiList,
     TagApiList, 
@@ -18,4 +20,9 @@ urlpatterns = [
         "startup/<str:slug>/", 
         StartupApiDetail.as_view(), 
         name="api-startup-detail"),
+    path("newslink/", NewsLinkApiList.as_view(), name="api-newslink-list"),
+    path(
+        "newslink/<str:strartup_slug>/<str:newslink_slug>/", 
+        NewsLinkApiDetail.as_view(), 
+        name="api-newslink-detail"),
 ]
