@@ -23,7 +23,7 @@ class TagApiList(APIView):
 class StartupApiDetail(APIView):
 
     def get(self, request, slug):
-        startup = get_object_or_404(Tag, slug=slug)
+        startup = get_object_or_404(Startup, slug=slug)
         s_startup = StartupSerializer(
             startup, context={"request": request}
         )
