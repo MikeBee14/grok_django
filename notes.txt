@@ -46,3 +46,4 @@ pytz==2018.5
 # RUN A TEMPORARY SHELL CONTAINER INTO DATABASE
 - docker-compose run --rm django python manage.py shell_plus
 - Tag.objects.create(name='django')
+- ctrl-D to exit

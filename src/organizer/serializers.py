@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from models import NewsLink, Startup, Tag   
+from .models import NewsLink, Startup, Tag   
 
 class TagSerializer(ModelSerializer):
    
