@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from django.views.decorators.http import require_safe
+from django.views import View
 from rest_framework.generics import (
     ListAPIView,
     RetrieveAPIView
@@ -11,18 +11,23 @@ from .serializers import (
     TagSerializer
 )
 
-@require_safe
-def tag_list(request):
-    tag_list = Tag.objects.all()
-    # tag_list is the varialbe referenced in the template
-    context = {"tag_list": tag_list} 
-    return render(request, "tag/list.html", context)
 
-@require_safe
-def tag_detail(request, slug):
-    tag = get_object_or_404(Tag, slug=slug)
-    context = {"tag": tag}
-    return render(request, "tag/detail.html", context)
+class TagList(View):
+
+    def get(self, request):
+        tag_list = Tag.objects.all()
+        # tag_list is the varialbe referenced in the template
+        context = {"tag_list": tag_list} 
+        return render(request, "tag/list.html", context)
+
+
+class TagDetail(View):
+    
+    def get(self, request, slug):
+        tag = get_object_or_404(Tag, slug=slug)
+        context = {"tag": tag}
+        return render(request, "tag/detail.html", context)
+
 
 class TagApiDetail(RetrieveAPIView):
 
