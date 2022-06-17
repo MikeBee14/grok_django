@@ -10,6 +10,7 @@ from django.db.models import (
     TextField,
     URLField,
 )
+from django.urls import reverse
 from django_extensions.db.fields import AutoSlugField
 
 class Tag(Model):
@@ -28,6 +29,11 @@ class Tag(Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse(
+            "tag_detail", kwargs={"slug": self.slug}
+        )
 
 
 class Startup(Model):
@@ -54,6 +60,10 @@ class Startup(Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse(
+            "startup_detail", kwargs={"slug": self.slug}
+        )
 
 class NewsLink(Model):
     """Link to external sources about a Startup"""

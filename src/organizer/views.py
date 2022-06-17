@@ -12,6 +12,18 @@ from .serializers import (
 )
 
 
+class StartupList(ListView):
+
+    queryset = Startup.objects.all()
+    template_name = "startup/list.html"
+
+
+class StartupDetail(DetailView):
+    
+    queryset = Startup.objects.all()
+    template_name =  "startup/detail.html"
+
+
 class TagList(ListView):
 
     queryset = Tag.objects.all()

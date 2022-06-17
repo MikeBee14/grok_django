@@ -9,6 +9,7 @@ from django.db.models import (
     TextField,
 )
 
+from django.urls import reverse
 from organizer.models import Startup, Tag
 
 
@@ -38,3 +39,13 @@ class Post(Model):
     def __str__(self):
         date_string = self.pub_date.strftime("%Y-%m-%d")
         return f"{self.title} on {date_string}"
+    
+    def get_absolute_url(self):
+        return reverse(
+            "post_detail",
+            kwargs={
+                "year": self.pub_date.year,
+                "month": self.pub_date.month,
+                "slug": self.slug
+            }
+        )
