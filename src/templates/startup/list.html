@@ -1,3 +1,10 @@
+{% extends parent_template|default:"startup/base.html"}
+
+{% block title %}
+    {{ block.super }} - Startups
+{% endblock %}
+
+{% block content %}
 <h2>Startup List</h2>
 <ul>
     {% for startup in startup_list %}
@@ -9,3 +16,4 @@
         <li><em>There are currently no Startups available.</em></li>
     {% endfor %}
 </ul>
+{% endblock %}
