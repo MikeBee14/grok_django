@@ -4,11 +4,8 @@ from rest_framework.generics import (
     ListAPIView,
     ListCreateAPIView,
     RetrieveAPIView,
-    RetrieveUpdateAPIView
+    RetrieveUpdateDestroyAPIView
 )
-
-from rest_framework.response import Response
-from rest_framework.status import HTTP_204_NO_CONTENT
 
 from .models import NewsLink, Startup, Tag
 from .serializers import (
@@ -41,16 +38,11 @@ class TagDetail(DetailView):
     template_name =  "tag/detail.html"
 
 
-class TagApiDetail(RetrieveUpdateAPIView):
+class TagApiDetail(RetrieveUpdateDestroyAPIView):
 
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     lookup_field = "slug"
-
-    def delete(self, request, slug):
-        tag = self.get_object()
-        tag.delete()
-        return Response(status=HTTP_204_NO_CONTENT)
 
 
 class TagApiList(ListCreateAPIView):
