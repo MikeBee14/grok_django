@@ -3,12 +3,8 @@ from django.views.generic import ListView, DetailView
 from rest_framework.generics import (
     ListAPIView,
     ListCreateAPIView,
-    RetrieveAPIView
-)
-from rest_framework.response import Response
-from rest_framework.status import(
-    HTTP_200_OK,
-    HTTP_400_BAD_REQUEST,
+    RetrieveAPIView,
+    RetrieveUpdateAPIView
 )
 
 from .models import NewsLink, Startup, Tag
@@ -42,40 +38,12 @@ class TagDetail(DetailView):
     template_name =  "tag/detail.html"
 
 
-class TagApiDetail(RetrieveAPIView):
+class TagApiDetail(RetrieveUpdateAPIView):
 
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     lookup_field = "slug"
 
-    def put(self, request, slug):
-        tag = self.get_object()
-        s_tag = self.serializer_class(
-            tag,
-            data=request.data,
-            context={"request": request}
-        )
-        if s_tag.is_valid():
-            s_tag.save()
-            return Response(s_tag.data, status=HTTP_200_OK)
-        return Response(
-            s_tag.errors, status=HTTP_400_BAD_REQUEST
-        )
-
-    def patch(self, request, slug):
-        tag = self.get_object()
-        s_tag = self.serializer_class(
-            tag,
-            data=request.data,
-            partial=True,
-            context={"request": request}
-        )
-        if s_tag.is_valid():
-            s_tag.save()
-            return Response(s_tag.data, status=HTTP_200_OK)
-        return Response(
-            s_tag.errors, status=HTTP_400_BAD_REQUEST
-        )
 
 class TagApiList(ListCreateAPIView):
 
