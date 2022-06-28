@@ -53,3 +53,6 @@ https://www.cdrf.co/
 
 # Django documentation
 https://www.djangoproject.com/
+
+# Show all URLs for api
+manage.py show_urls
