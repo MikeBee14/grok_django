@@ -50,3 +50,6 @@ pytz==2018.5
 
 # Classy django
 https://www.cdrf.co/
+
+# Django documentation
+https://www.djangoproject.com/
