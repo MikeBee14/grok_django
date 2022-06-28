@@ -9,7 +9,7 @@ class TagSerializer(ModelSerializer):
 
 class StartupSerializer(HyperlinkedModelSerializer):
     
-    tags = TagSerializer(many=True)
+    tags = TagSerializer(many=True, read_only=True)
 
     class Meta:
        model = Startup
